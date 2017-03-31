@@ -42,6 +42,10 @@ public class FastFoodAnyone extends javax.swing.JFrame {
         subTotalOutput = new javax.swing.JTextField();
         drinksInput = new javax.swing.JTextField();
         calculate = new javax.swing.JButton();
+        tenderedLabel = new javax.swing.JLabel();
+        changeLabel = new javax.swing.JLabel();
+        tenderedOutput = new javax.swing.JTextField();
+        changeOutput = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -126,23 +130,43 @@ public class FastFoodAnyone extends javax.swing.JFrame {
             }
         });
 
+        tenderedLabel.setFont(new java.awt.Font("SouvenirGreek Bd BT", 2, 18)); // NOI18N
+        tenderedLabel.setText("Tendered");
+
+        changeLabel.setFont(new java.awt.Font("SouvenirGreek Bd BT", 2, 18)); // NOI18N
+        changeLabel.setText("Change");
+
+        tenderedOutput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenderedOutputActionPerformed(evt);
+            }
+        });
+
+        changeOutput.setEditable(false);
+        changeOutput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeOutputActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(calculate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(title, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(calculate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(title, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(burgerInput)
@@ -150,7 +174,12 @@ public class FastFoodAnyone extends javax.swing.JFrame {
                             .addComponent(taxOutput)
                             .addComponent(subTotalOutput)
                             .addComponent(drinksInput)
-                            .addComponent(friesInput))))
+                            .addComponent(friesInput)
+                            .addComponent(changeOutput)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tenderedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(tenderedOutput)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,9 +199,13 @@ public class FastFoodAnyone extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(drinksInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tenderedLabel)
+                    .addComponent(tenderedOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addComponent(calculate, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(calculate)
-                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(subTotalOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,7 +217,11 @@ public class FastFoodAnyone extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(finalTotalOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(changeLabel)
+                    .addComponent(changeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -238,7 +275,7 @@ public class FastFoodAnyone extends javax.swing.JFrame {
     }//GEN-LAST:event_drinksInputActionPerformed
 
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
-        double subTotal , tax , total; 
+        double subTotal , tax , total , change;
         
         double burger = 2.49;
         double fry = 1.89;
@@ -247,6 +284,7 @@ public class FastFoodAnyone extends javax.swing.JFrame {
         double burgernum = Double.parseDouble(burgerInput.getText());
         double frynum = Double.parseDouble(friesInput.getText());
         double drinknum = Double.parseDouble(drinksInput.getText());
+        double tendered = Double.parseDouble(tenderedOutput.getText());
         
         subTotal = (burger*burgernum + fry*frynum + drink*drinknum);
         
@@ -259,7 +297,23 @@ public class FastFoodAnyone extends javax.swing.JFrame {
         total = (subTotal + tax);
         
         finalTotalOutput.setText("$" + total);
+        
+        change = (tendered - total);
+        
+        changeOutput.setText("$" + change);
+        
+        
+        
+        
     }//GEN-LAST:event_calculateActionPerformed
+
+    private void tenderedOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenderedOutputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tenderedOutputActionPerformed
+
+    private void changeOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeOutputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeOutputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,6 +353,8 @@ public class FastFoodAnyone extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField burgerInput;
     private javax.swing.JButton calculate;
+    private javax.swing.JLabel changeLabel;
+    private javax.swing.JTextField changeOutput;
     private javax.swing.JTextField drinksInput;
     private javax.swing.JTextField finalTotalOutput;
     private javax.swing.JTextField friesInput;
@@ -315,6 +371,8 @@ public class FastFoodAnyone extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField subTotalOutput;
     private javax.swing.JTextField taxOutput;
+    private javax.swing.JLabel tenderedLabel;
+    private javax.swing.JTextField tenderedOutput;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
